@@ -1,0 +1,21 @@
+def solve():
+    N=int(input())
+    student=[]
+    for i in range(N):
+        student.append([input(),input()])
+    student.sort(key=lambda student:student[1])
+    second_lowest=[]
+    for i in range(len(student)):
+        if student[i][1]!=student[0][1]:
+            second_lowest.append(student[i][0])
+            for j in range(i+1,len(student)):
+                if student[j][1]==student[i][1]:
+                    second_lowest.append(student[j][0])
+                else:
+                    break
+            break
+        else:
+            continue
+    second_lowest.sort()
+    print(second_lowest)
+solve()
